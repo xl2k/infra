@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:alpine3.18
+    container_name: pling_postgres
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD?err}
+    ports:
+      - "5434:5432"
+    volumes:
+      - /path/on/host:/var/lib/postgresql/data
